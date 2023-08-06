@@ -113,15 +113,15 @@ public class AlcoBlocks {
                                                                      Supplier<T> block,
                                                                      CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, tab);
+        registerBlockItem(name, toReturn);
 
         return toReturn;
     }
 
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name,
-                                                                            RegistryObject<T> block,
-                                                                            CreativeModeTab tab) {
-        return AlcoItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(tab)));
+                                                                            RegistryObject<T> block) {
+
+        return AlcoItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     private static <T extends Block> RegistryObject<Block> registerBlockWithoutItem(String name,
