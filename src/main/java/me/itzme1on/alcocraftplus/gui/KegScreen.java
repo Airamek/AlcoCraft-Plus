@@ -87,9 +87,11 @@ public class KegScreen extends AbstractContainerScreen<KegMenu> {
         TextureAtlasSprite sprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(location);
         int color = fluidTypeExtensions.getTintColor();
 
+
+
         int z = this.menu.getWaterlevel();
-        x = (width - sprite.getWidth()) / 2 - 80;
-        y = (height - sprite.getHeight()) / 2 - 19 - z;
+        x = (width - sprite.contents().width()) / 2 - 80;
+        y = (height - sprite.contents().height()) / 2 - 19 - z;
 
         RenderSystem.setShaderTexture(0, InventoryMenu.BLOCK_ATLAS);
         RenderSystem.setShaderColor(((color >> 16) & 0xFF) / 255f, ((color >> 8) & 0xFF) / 255f,
@@ -105,8 +107,8 @@ public class KegScreen extends AbstractContainerScreen<KegMenu> {
         sprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(location);
 
         z = this.menu.getBeerLevel();
-        x = (width - sprite.getWidth()) / 2 - 80;
-        y = (height - sprite.getHeight()) / 2 - 19 - z;
+        x = (width - sprite.contents().width()) / 2 - 80;
+        y = (height - sprite.contents().height()) / 2 - 19 - z;
 
         RenderSystem.setShaderTexture(0, InventoryMenu.BLOCK_ATLAS);
 

@@ -7,9 +7,7 @@ import me.itzme1on.alcocraftplus.AlcoCraftPlus;
 import me.itzme1on.alcocraftplus.blocks.plants.HopPlant;
 import me.itzme1on.alcocraftplus.blocks.workstations.Keg;
 import me.itzme1on.alcocraftplus.items.AlcoItems;
-import me.itzme1on.alcocraftplus.misc.AlcoTabGroup;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -29,7 +27,7 @@ public class AlcoBlocks {
     public static final RegistryObject<Block> KEG = registerBlock("keg",
             () -> new Keg(BlockBehaviour.Properties
                     .copy(Blocks.BARREL)
-                    .noOcclusion()), AlcoTabGroup.GROUP);
+                    .noOcclusion()));
 
     public static final RegistryObject<Block> HOP = registerBlockWithoutItem("hop",
             () -> new Hop(BlockBehaviour.Properties
@@ -110,8 +108,7 @@ public class AlcoBlocks {
                     .noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name,
-                                                                     Supplier<T> block,
-                                                                     CreativeModeTab tab) {
+                                                                     Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
 
